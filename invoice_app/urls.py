@@ -6,5 +6,6 @@ router = DefaultRouter()
 router.register(r'', InvoiceViewSet)
 
 urlpatterns = [
+
     path('', include(router.urls)),
 ]

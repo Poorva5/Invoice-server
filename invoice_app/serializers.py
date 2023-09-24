@@ -1,3 +1,4 @@
+import re
 from rest_framework import serializers
 from invoice_app.models import Invoice, InvoiceDetail
 
@@ -13,13 +14,16 @@ class InvoiceSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = Invoice
-        fields = ['id', 'date', 'customer_name', 'created_at', 'updated_at', 'invoice_details']
+        fields = ['id', 'date', 'customer_name', 'created_at', 'updated_at','invoice_details']
         
         
     def create(self, validated_data):
-        invoice_details = validated_data.pop('invoice_details')
+        invoice_details = validated_data.pop('invoice_details', [])
         invoice = Invoice.objects.create(**validated_data)
         for detail in invoice_details:
             InvoiceDetail.objects.create(invoice=invoice, **detail)
         return invoice
+    
+    
+    
     

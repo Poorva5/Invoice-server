@@ -72,6 +72,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'invoice_server.wsgi.application'
 
 
+
+
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -84,6 +86,14 @@ DATABASES = {
         'HOST' : 'localhost',
         'PORT' : '5432'
     }
+    # 'test': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'invoice_db_test',
+    #     'USER': 'invoice_user',
+    #     'PASSWORD': 'admin123',
+    #     'HOST': 'localhost',
+    #     'PORT': '5432',
+    # }
 }
 
 

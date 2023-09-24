@@ -3,7 +3,7 @@ from utils.models import BaseModel
 
 
 class Invoice(BaseModel):
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.DateField(auto_now=True)
     customer_name = models.CharField(max_length=255)
     
     def __str__(self):
